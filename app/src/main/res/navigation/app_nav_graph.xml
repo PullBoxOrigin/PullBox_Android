@@ -6,10 +6,17 @@
     app:startDestination="@id/googleSignInFragment">
 
 
+    <include app:graph="@navigation/portfolio_nav_graph" />
+
     <fragment
         android:id="@+id/googleSignInFragment"
         android:name="com.antique_boss.pullbox_android.GoogleSignInFragment"
         android:label="fragment_google_sign_in"
         tools:layout="@layout/fragment_google_sign_in" />
+
+    <action
+        android:id="@+id/global_action_main"
+        app:destination="@id/portfolio_nav_graph"
+        app:popUpTo="@id/app_nav_graph"/>
 
 </navigation>
