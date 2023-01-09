@@ -14,4 +14,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "PullBox_Android"
 include ':app'
-include ':features:login'
