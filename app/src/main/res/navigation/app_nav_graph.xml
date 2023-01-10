@@ -5,8 +5,8 @@
     android:id="@+id/app_nav_graph"
     app:startDestination="@id/googleSignInFragment">
 
-
     <include app:graph="@navigation/portfolio_nav_graph" />
+    <include app:graph="@navigation/registration_nav_graph" />
 
     <fragment
         android:id="@+id/googleSignInFragment"

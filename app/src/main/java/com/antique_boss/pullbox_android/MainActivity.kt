@@ -10,6 +10,7 @@ import androidx.core.view.updatePadding
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.antique_boss.pullbox_android.databinding.ActivityMainBinding
 import com.antique_boss.pullbox_android.viewmodel.AppViewModel
 
@@ -26,7 +27,23 @@ class MainActivity : AppCompatActivity() {
 
     private fun initialize() {
         setupEdgeStyle()
+        setupBottomNavigationView()
         setupObservers()
+    }
+
+    private fun setupBottomNavigationView() {
+        val navController = supportFragmentManager.findFragmentById(R.id.fragment_container_view)?.findNavController()
+        navController?.let {
+            //TODO Jetpack Navigation <-> BottomNavigationView connect
+            binding.bottomNavigationView.setupWithNavController(it)
+            it.addOnDestinationChangedListener { _, destination, _ ->
+                when(destination.id) {
+                    com.antique_boss.portfolio.R.id.portfolioFragment -> binding.bottomNavigationView.visibility = View.VISIBLE
+                    com.antique_boss.registration.R.id.registrationFragment -> binding.bottomNavigationView.visibility = View.VISIBLE
+                    else -> binding.bottomNavigationView.visibility = View.GONE
+                }
+            }
+        }
     }
 
     private fun setupEdgeStyle() {
