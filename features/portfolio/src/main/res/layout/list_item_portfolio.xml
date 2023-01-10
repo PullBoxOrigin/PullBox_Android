@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shape_gray_stroke_round_corner">
+
+        <ImageView
+            android:id="@+id/profile_image_view"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:src="@color/cardview_shadow_start_color" />
+
+        <TextView
+            android:id="@+id/nickname_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/profile_image_view"
+            app:layout_constraintStart_toEndOf="@id/profile_image_view"
+            android:layout_marginStart="8dp"
+            android:textSize="12sp"
+            android:textColor="#000000"
+            android:fontFamily="@font/pretendard_regular"
+            app:layout_constraintBottom_toTopOf="@id/category_text_view"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="엔틱" />
+
+        <TextView
+            android:id="@+id/category_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/nickname_text_view"
+            app:layout_constraintStart_toEndOf="@id/profile_image_view"
+            app:layout_constraintBottom_toBottomOf="@id/profile_image_view"
+            android:textColor="#000000"
+            android:layout_marginStart="8dp"
+            android:textSize="12sp"
+            android:fontFamily="@font/pretendard_bold"
+            tools:text="#Android" />
+
+        <TextView
+            android:id="@+id/portfolio_question_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/profile_image_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:maxLines="3"
+            android:layout_margin="12dp"
+            tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard " />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
