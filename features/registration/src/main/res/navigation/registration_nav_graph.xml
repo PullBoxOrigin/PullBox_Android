@@ -9,5 +9,26 @@
         android:id="@+id/registrationFragment"
         android:name="com.antique_boss.registration.RegistrationFragment"
         android:label="fragment_registration"
-        tools:layout="@layout/fragment_registration" />
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/action_registrationFragment_to_categoryBottomSheetFragment"
+            app:destination="@id/categoryBottomSheetFragment" />
+
+
+    </fragment>
+
+    <dialog
+        android:id="@+id/categoryBottomSheetFragment"
+        android:name="com.antique_boss.registration.CategoryBottomSheetFragment"
+        android:label="CategoryBottomSheetFragment" >
+        <action
+            android:id="@+id/action_categoryBottomSheetFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment"
+            app:popUpTo="@id/registrationFragment"
+            app:popUpToInclusive="true"/>
+        <argument
+            android:name="categories"
+            app:argType="string[]" />
+
+    </dialog>
 </navigation>

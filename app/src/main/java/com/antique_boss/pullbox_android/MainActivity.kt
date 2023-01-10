@@ -1,23 +1,28 @@
 package com.antique_boss.pullbox_android
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.updatePadding
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.antique_boss.pullbox_android.databinding.ActivityMainBinding
-import com.antique_boss.pullbox_android.viewmodel.AppViewModel
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
-    private val viewModel by lazy { ViewModelProvider(this).get(AppViewModel::class.java) }
+    private val googleSignInLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        initialize()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -26,9 +31,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initialize() {
-        setupEdgeStyle()
-        setupBottomNavigationView()
-        setupObservers()
+        if(Firebase.auth.currentUser != null) {
+            setupNavigationGraph()
+            setupEdgeStyle()
+            setupBottomNavigationView()
+        } else {
+            googleSignInLauncher.launch(Intent(this, GoogleSignInActivity::class.java))
+        }
+    }
+
+    private fun setupNavigationGraph() {
+        val navController = supportFragmentManager.findFragmentById(R.id.fragment_container_view)?.findNavController()
+        navController?.let {
+            val navGraph = it.navInflater.inflate(R.navigation.app_nav_graph)
+            navGraph.setStartDestination(R.id.portfolio_nav_graph)
+            navController.setGraph(navGraph, null)
+        }
     }
 
     private fun setupBottomNavigationView() {
@@ -37,7 +55,7 @@ class MainActivity : AppCompatActivity() {
             //TODO Jetpack Navigation <-> BottomNavigationView connect
             binding.bottomNavigationView.setupWithNavController(it)
             it.addOnDestinationChangedListener { _, destination, _ ->
-                when(destination.id) {
+                when (destination.id) {
                     com.antique_boss.portfolio.R.id.portfolioFragment -> binding.bottomNavigationView.visibility = View.VISIBLE
                     com.antique_boss.registration.R.id.registrationFragment -> binding.bottomNavigationView.visibility = View.VISIBLE
                     else -> binding.bottomNavigationView.visibility = View.GONE
@@ -62,12 +80,5 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-    }
-
-    private fun setupObservers() {
-        viewModel.auth.observe(this) {
-            val navController = supportFragmentManager.findFragmentById(R.id.fragment_container_view)?.findNavController()
-            navController?.navigate(R.id.global_action_main)
-        }
     }
 }
