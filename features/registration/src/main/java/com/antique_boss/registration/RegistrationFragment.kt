@@ -1,13 +1,12 @@
 package com.antique_boss.registration
 
 import android.os.Bundle
-import android.util.Log
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.*
 import android.widget.Toast
-import androidx.core.view.MenuHost
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import com.antique_boss.registration.databinding.FragmentRegistrationBinding
@@ -37,6 +36,7 @@ class RegistrationFragment : Fragment() {
         setupDataBinding()
         setupToolbar()
         setupViewListener()
+        setupObservers()
     }
 
     private fun setupDataBinding() {
@@ -74,6 +74,62 @@ class RegistrationFragment : Fragment() {
             val action = RegistrationFragmentDirections.actionRegistrationFragmentToCategoryBottomSheetFragment(categories.toTypedArray())
             findNavController().navigate(action)
         }
+
+        //install text watcher to portfolio url edit text
+        binding.portfolioUrlInputView.addTextChangedListener(object : TextWatcher {
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                s?.let {
+                    registrationViewModel.updatePortfolioUrl(s.toString())
+                }
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun afterTextChanged(s: Editable?) {}
+        })
+
+        //install text watcher to title edit text
+        binding.titleInputView.addTextChangedListener(object : TextWatcher {
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                s?.let {
+                    registrationViewModel.updateTitle(s.toString())
+                }
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun afterTextChanged(s: Editable?) {}
+
+        })
+
+        //install text watcher to main edit text
+        binding.mainInputView.addTextChangedListener(object : TextWatcher {
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                s?.let {
+                    registrationViewModel.updateMain(s.toString())
+                }
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun afterTextChanged(s: Editable?) {}
+        })
     }
 
+    private fun setupObservers() {
+        registrationViewModel.category.observe(viewLifecycleOwner) {
+
+            registrationViewModel.validateRequiredElement()
+        }
+        registrationViewModel.portfolioUrl.observe(viewLifecycleOwner) {
+            registrationViewModel.validateRequiredElement()
+        }
+        registrationViewModel.title.observe(viewLifecycleOwner) {
+            registrationViewModel.validateRequiredElement()
+        }
+        registrationViewModel.main.observe(viewLifecycleOwner) {
+            registrationViewModel.validateRequiredElement()
+        }
+
+        registrationViewModel.registration.observe(viewLifecycleOwner) {
+            when(it) {
+                true -> completeMenuItem.isEnabled = true
+                false -> completeMenuItem.isEnabled = false
+            }
+        }
+    }
 }
