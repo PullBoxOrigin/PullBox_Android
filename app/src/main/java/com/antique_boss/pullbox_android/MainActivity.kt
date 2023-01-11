@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() {
                 when (destination.id) {
                     com.antique_boss.portfolio.R.id.portfolioFragment -> binding.bottomNavigationView.visibility = View.VISIBLE
                     com.antique_boss.registration.R.id.registrationFragment -> binding.bottomNavigationView.visibility = View.VISIBLE
+                    com.antique_boss.news.R.id.newsFragment -> binding.bottomNavigationView.visibility = View.VISIBLE
                     else -> binding.bottomNavigationView.visibility = View.GONE
                 }
             }

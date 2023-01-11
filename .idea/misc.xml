@@ -13,6 +13,8 @@
         <entry key="..\:/repo/PullBox_Android/features/login/src/main/res/drawable/shape_rounded_corner.xml" value="0.196" />
         <entry key="..\:/repo/PullBox_Android/features/login/src/main/res/font/font_family.xml" value="0.3111111111111111" />
         <entry key="..\:/repo/PullBox_Android/features/login/src/main/res/layout/fragment_login.xml" value="0.5" />
+        <entry key="..\:/repo/PullBox_Android/features/news/src/main/res/font/font_family.xml" value="0.3963541666666667" />
+        <entry key="..\:/repo/PullBox_Android/features/news/src/main/res/layout/fragment_news.xml" value="0.36614583333333334" />
         <entry key="..\:/repo/PullBox_Android/features/portfolio/src/main/res/drawable/shape_gray_fill_round_corner.xml" value="0.187" />
         <entry key="..\:/repo/PullBox_Android/features/portfolio/src/main/res/drawable/shape_gray_stroke_round_corner.xml" value="0.2865" />
         <entry key="..\:/repo/PullBox_Android/features/portfolio/src/main/res/layout/fragment_comment_bottom_sheet.xml" value="0.36614583333333334" />

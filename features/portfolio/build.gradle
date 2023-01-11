@@ -53,6 +53,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-database-ktx'
 
+    //ViewModel
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    //LiveData
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+
     //circle image view
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
