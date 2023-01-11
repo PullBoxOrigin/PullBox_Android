@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
+    /*
     private fun setupEdgeStyle() {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -76,7 +76,31 @@ class MainActivity : AppCompatActivity() {
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, insets ->
             view.updatePadding(
-                top = insets.systemWindowInsets.top
+                top = insets.systemWindowInsets.top,
+                bottom = insets.systemWindowInsets.bottom
+            )
+            insets
+        }
+    }
+
+     */
+
+    private fun setupEdgeStyle() {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            WindowCompat.setDecorFitsSystemWindows(window, false)
+        } else {
+            binding.root.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+        }
+
+        binding.bottomNavigationView.setOnApplyWindowInsetsListener(null)
+        binding.bottomNavigationView.setPadding(0, 0, 0, 0)
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, insets ->
+            view.updatePadding(
+                top = insets.systemWindowInsets.top,
+                bottom = insets.systemWindowInsets.bottom
             )
             insets
         }

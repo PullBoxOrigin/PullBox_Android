@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.antique_boss.portfolio.databinding.FragmentPortfolioDetailBinding
 
 class PortfolioDetailFragment : Fragment() {
@@ -20,5 +21,28 @@ class PortfolioDetailFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        initialize()
+    }
+
+    private fun initialize() {
+        setupToolbar()
+        setupViewListener()
+    }
+
+    private fun setupToolbar() {
+        binding.portfolioDetailToolbar.setNavigationIcon(R.drawable.ic_back)
+        binding.portfolioDetailToolbar.setNavigationOnClickListener {
+            findNavController().navigate(R.id.action_portfolioDetailFragment_to_portfolioFragment)
+        }
+    }
+
+    private fun setupViewListener() {
+        binding.portfolioDetailCommentsView.setOnClickListener {
+            findNavController().navigate(R.id.action_portfolioDetailFragment_to_commentBottomSheetFragment)
+        }
+    }
 
 }
