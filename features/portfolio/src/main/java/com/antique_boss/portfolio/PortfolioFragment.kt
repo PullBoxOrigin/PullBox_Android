@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.antique_boss.portfolio.databinding.FragmentPortfolioBinding
 import com.google.firebase.auth.ktx.auth
@@ -39,7 +40,10 @@ class PortfolioFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        portfolioListAdapter = PortfolioListAdapter()
+        portfolioListAdapter = PortfolioListAdapter {
+            findNavController().navigate(R.id.action_portfolioFragment_to_portfolioDetailFragment)
+        }
+
         portfolioListAdapter.submitList(listOf(
             "111111111111111111111111111111111111111111111111111111111111111 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",
             "222222222222222222222222222222222222222222222222222222222222222 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",

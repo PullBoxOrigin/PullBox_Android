@@ -10,6 +10,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.updatePadding
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.antique_boss.pullbox_android.databinding.ActivityMainBinding
@@ -79,6 +80,5 @@ class MainActivity : AppCompatActivity() {
             )
             insets
         }
-
     }
 }
