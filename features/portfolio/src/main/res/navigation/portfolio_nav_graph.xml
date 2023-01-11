@@ -7,5 +7,15 @@
     <fragment
         android:id="@+id/portfolioFragment"
         android:name="com.antique_boss.portfolio.PortfolioFragment"
-        android:label="PortfolioFragment" />
+        android:label="PortfolioFragment" >
+        <action
+            android:id="@+id/action_portfolioFragment_to_portfolioDetailFragment"
+            app:destination="@id/portfolioDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/portfolioDetailFragment"
+        android:name="com.antique_boss.portfolio.PortfolioDetailFragment"
+        android:label="PortfolioDetailFragment" />
+
 </navigation>

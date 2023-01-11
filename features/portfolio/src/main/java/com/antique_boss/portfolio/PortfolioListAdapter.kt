@@ -6,7 +6,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.antique_boss.portfolio.databinding.ListItemPortfolioBinding
 
-class PortfolioListAdapter : RecyclerView.Adapter<PortfolioListAdapter.PortfolioViewHolder>() {
+class PortfolioListAdapter(
+    private val onPortfolioClickListener: () -> Unit
+) : RecyclerView.Adapter<PortfolioListAdapter.PortfolioViewHolder>() {
     private val portfolioList = mutableListOf<String>()
 
     inner class PortfolioViewHolder(private val binding: ListItemPortfolioBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -14,6 +16,9 @@ class PortfolioListAdapter : RecyclerView.Adapter<PortfolioListAdapter.Portfolio
             binding.categoryTextView.text = "#Android"
             binding.nicknameTextView.text = "엔틱보스"
             binding.portfolioQuestionTextView.text = portfolioList[position]
+            binding.root.setOnClickListener {
+                onPortfolioClickListener()
+            }
         }
     }
 

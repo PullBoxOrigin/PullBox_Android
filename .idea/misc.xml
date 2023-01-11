@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/repo/PullBox_Android/app/src/main/res/drawable/bottom_navigation_selector.xml" value="0.1425" />
+        <entry key="..\:/repo/PullBox_Android/app/src/main/res/layout/activity_google_sign_in.xml" value="0.2234375" />
         <entry key="..\:/repo/PullBox_Android/app/src/main/res/layout/activity_main.xml" value="0.18958333333333333" />
         <entry key="..\:/repo/PullBox_Android/app/src/main/res/layout/fragment_google_sign_in.xml" value="0.25" />
         <entry key="..\:/repo/PullBox_Android/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.18802083333333333" />
@@ -16,7 +17,14 @@
         <entry key="..\:/repo/PullBox_Android/features/portfolio/src/main/res/drawable/shape_gray_fill_round_corner.xml" value="0.187" />
         <entry key="..\:/repo/PullBox_Android/features/portfolio/src/main/res/drawable/shape_gray_stroke_round_corner.xml" value="0.2865" />
         <entry key="..\:/repo/PullBox_Android/features/portfolio/src/main/res/layout/fragment_portfolio.xml" value="0.33" />
+        <entry key="..\:/repo/PullBox_Android/features/portfolio/src/main/res/layout/fragment_portfolio_detail.xml" value="0.36614583333333334" />
         <entry key="..\:/repo/PullBox_Android/features/portfolio/src/main/res/layout/list_item_portfolio.xml" value="0.5" />
+        <entry key="..\:/repo/PullBox_Android/features/registration/src/main/res/drawable/shape_gray_fill_round_corner.xml" value="0.266" />
+        <entry key="..\:/repo/PullBox_Android/features/registration/src/main/res/font/font_family.xml" value="0.26481481481481484" />
+        <entry key="..\:/repo/PullBox_Android/features/registration/src/main/res/layout/fragment_category_bottom_sheet.xml" value="0.36614583333333334" />
+        <entry key="..\:/repo/PullBox_Android/features/registration/src/main/res/layout/fragment_registration.xml" value="0.33" />
+        <entry key="..\:/repo/PullBox_Android/features/registration/src/main/res/layout/list_item_category.xml" value="0.5" />
+        <entry key="..\:/repo/PullBox_Android/features/registration/src/main/res/menu/registration_toolbar_menu.xml" value="0.1" />
       </map>
     </option>
   </component>
