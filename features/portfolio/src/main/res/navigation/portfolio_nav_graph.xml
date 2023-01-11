@@ -16,6 +16,23 @@
     <fragment
         android:id="@+id/portfolioDetailFragment"
         android:name="com.antique_boss.portfolio.PortfolioDetailFragment"
-        android:label="PortfolioDetailFragment" />
+        android:label="PortfolioDetailFragment" >
+        <action
+            android:id="@+id/action_portfolioDetailFragment_to_portfolioFragment"
+            app:destination="@id/portfolioFragment"
+            app:popUpTo="@id/portfolioFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_portfolioDetailFragment_to_commentBottomSheetFragment"
+            app:destination="@id/commentBottomSheetFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/commentBottomSheetFragment"
+        android:name="com.antique_boss.portfolio.CommentBottomSheetFragment"
+        android:label="CommentBottomSheetFragment" >
+        <action
+            android:id="@+id/action_commentBottomSheetFragment_to_portfolioDetailFragment"
+            app:destination="@id/portfolioDetailFragment" />
+    </dialog>
 
 </navigation>
