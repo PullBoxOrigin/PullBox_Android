@@ -50,10 +50,11 @@
             android:id="@+id/hot_post_recycler_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:paddingHorizontal="12dp"
+            android:clipToPadding="false"
             app:layout_constraintTop_toBottomOf="@id/hot_post_title_text_view"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
