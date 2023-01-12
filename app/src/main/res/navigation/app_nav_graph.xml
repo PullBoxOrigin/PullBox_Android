@@ -6,5 +6,6 @@
 
     <include app:graph="@navigation/portfolio_nav_graph" />
     <include app:graph="@navigation/registration_nav_graph" />
+    <include app:graph="@navigation/news_nav_graph" />
 
 </navigation>

@@ -16,3 +16,4 @@ rootProject.name = "PullBox_Android"
 include ':app'
 include ':features:portfolio'
 include ':features:registration'
+include ':features:news'
