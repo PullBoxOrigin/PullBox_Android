@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="preview"
+            type="com.antique_boss.util.preview.Preview"/>
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -41,7 +43,7 @@
                 android:ellipsize="end"
                 android:textColor="#000000"
                 android:fontFamily="@font/pretendard_light"
-                android:text="면접관이 직접 알려주는 면접 꿀팁 5가지! (이 글 읽고 합격하자)"
+                android:text="@{preview.description}"
                 android:textSize="13sp"
                 android:padding="4dp" />
 
