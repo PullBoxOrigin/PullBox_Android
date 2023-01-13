@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="portfolioViewModel"
+            type="com.antique_boss.portfolio.PortfolioViewModel" />
     </data>
 
 
@@ -99,7 +101,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/portfolio_detail_title_text_view" />
-
+                <!--
                 <ImageView
                     android:id="@+id/portfolio_preview_view"
                     android:layout_width="0dp"
@@ -113,6 +115,73 @@
                     app:layout_constraintTop_toBottomOf="@id/portfolio_detail_main_text_view"
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:layout_marginBottom="50dp"/>
+                    -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/portfolio_preview_container"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="20dp"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="4dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#e9e9e9"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/portfolio_detail_main_text_view"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="50dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:id="@+id/portfolio_preview_image_view"
+                            android:layout_width="100dp"
+                            android:layout_height="0dp"
+                            android:src="#0044ee"
+                            android:scaleType="centerCrop"
+                            android:adjustViewBounds="true"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+                        <TextView
+                            android:id="@+id/portfolio_preview_title_text_view"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/portfolio_preview_image_view"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginTop="12dp"
+                            android:text="@{portfolioViewModel.preview.title}"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/pretendard_bold"
+                            android:textColor="#000000"
+                            android:maxLines="1"
+                            android:ellipsize="end"/>
+                        
+                        <TextView
+                            android:id="@+id/portfolio_preview_main_text_view"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@id/portfolio_preview_title_text_view"
+                            app:layout_constraintStart_toEndOf="@id/portfolio_preview_image_view"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:maxLines="2"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/pretendard_regular"
+                            android:textSize="14sp"
+                            android:textColor="#000000"
+                            android:text="@{portfolioViewModel.preview.description}"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
