@@ -12,7 +12,7 @@ class CommentAdapter(
 
     inner class CommentViewHolder(private val binding: ListItemCommentBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
-
+            binding.commentMainTextView.text = comments[position]
         }
     }
 
