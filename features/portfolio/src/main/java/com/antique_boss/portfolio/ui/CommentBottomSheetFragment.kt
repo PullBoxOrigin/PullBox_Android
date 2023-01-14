@@ -1,19 +1,15 @@
-package com.antique_boss.portfolio
+package com.antique_boss.portfolio.ui
 
-import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowCompat
-import androidx.core.view.updatePadding
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.antique_boss.portfolio.adapter.CommentAdapter
+import com.antique_boss.portfolio.R
 import com.antique_boss.portfolio.databinding.FragmentCommentBottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -27,7 +23,8 @@ class CommentBottomSheetFragment : BottomSheetDialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_comment_bottom_sheet, container, false)
+        _binding = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_comment_bottom_sheet, container, false)
         return binding.root
     }
 

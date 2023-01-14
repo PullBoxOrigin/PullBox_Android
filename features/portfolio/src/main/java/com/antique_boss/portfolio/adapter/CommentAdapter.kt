@@ -1,10 +1,11 @@
-package com.antique_boss.portfolio
+package com.antique_boss.portfolio.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.antique_boss.portfolio.R
 import com.antique_boss.portfolio.databinding.ListItemCommentBinding
 
 class CommentAdapter(
@@ -24,7 +25,8 @@ class CommentAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommentViewHolder {
-        val binding = DataBindingUtil.inflate<ListItemCommentBinding>(LayoutInflater.from(parent.context), R.layout.list_item_comment, parent, false)
+        val binding = DataBindingUtil.inflate<ListItemCommentBinding>(LayoutInflater.from(parent.context),
+            R.layout.list_item_comment, parent, false)
         return CommentViewHolder(binding)
     }
 

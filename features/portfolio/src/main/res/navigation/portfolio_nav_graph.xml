@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/portfolioFragment"
-        android:name="com.antique_boss.portfolio.PortfolioFragment"
+        android:name="com.antique_boss.portfolio.ui.PortfolioFragment"
         android:label="PortfolioFragment" >
         <action
             android:id="@+id/action_portfolioFragment_to_portfolioDetailFragment"
@@ -15,7 +15,7 @@
 
     <fragment
         android:id="@+id/portfolioDetailFragment"
-        android:name="com.antique_boss.portfolio.PortfolioDetailFragment"
+        android:name="com.antique_boss.portfolio.ui.PortfolioDetailFragment"
         android:label="PortfolioDetailFragment" >
         <action
             android:id="@+id/action_portfolioDetailFragment_to_portfolioFragment"
@@ -28,7 +28,7 @@
     </fragment>
     <dialog
         android:id="@+id/commentBottomSheetFragment"
-        android:name="com.antique_boss.portfolio.CommentBottomSheetFragment"
+        android:name="com.antique_boss.portfolio.ui.CommentBottomSheetFragment"
         android:label="CommentBottomSheetFragment" >
         <action
             android:id="@+id/action_commentBottomSheetFragment_to_portfolioDetailFragment"

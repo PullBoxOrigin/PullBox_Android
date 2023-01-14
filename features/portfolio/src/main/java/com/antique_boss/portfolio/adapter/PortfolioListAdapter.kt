@@ -1,9 +1,10 @@
-package com.antique_boss.portfolio
+package com.antique_boss.portfolio.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.antique_boss.portfolio.R
 import com.antique_boss.portfolio.databinding.ListItemPortfolioBinding
 
 class PortfolioListAdapter(
@@ -23,7 +24,8 @@ class PortfolioListAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PortfolioViewHolder {
-        val binding = DataBindingUtil.inflate<ListItemPortfolioBinding>(LayoutInflater.from(parent.context), R.layout.list_item_portfolio, parent, false)
+        val binding = DataBindingUtil.inflate<ListItemPortfolioBinding>(LayoutInflater.from(parent.context),
+            R.layout.list_item_portfolio, parent, false)
         return PortfolioViewHolder(binding)
     }
 

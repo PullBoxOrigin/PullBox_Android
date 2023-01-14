@@ -6,14 +6,14 @@
     <data>
         <variable
             name="portfolioViewModel"
-            type="com.antique_boss.portfolio.PortfolioViewModel" />
+            type="com.antique_boss.portfolio.viewmodel.PortfolioViewModel" />
     </data>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".PortfolioDetailFragment">
+        tools:context=".ui.PortfolioDetailFragment">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/portfolio_detail_toolbar"

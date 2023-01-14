@@ -1,4 +1,4 @@
-package com.antique_boss.portfolio
+package com.antique_boss.portfolio.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
