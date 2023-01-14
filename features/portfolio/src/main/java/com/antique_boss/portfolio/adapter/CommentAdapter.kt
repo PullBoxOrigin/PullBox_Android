@@ -1,5 +1,6 @@
 package com.antique_boss.portfolio.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +10,10 @@ import com.antique_boss.portfolio.R
 import com.antique_boss.portfolio.databinding.ListItemCommentBinding
 
 class CommentAdapter(
-    private var comments: List<String>,
     private val onPopupMenuClickListener: (View, Int) -> Unit
 ) : RecyclerView.Adapter<CommentAdapter.CommentViewHolder>() {
+
+    private lateinit var comments: MutableList<String>
 
     inner class CommentViewHolder(private val binding: ListItemCommentBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
@@ -36,12 +38,15 @@ class CommentAdapter(
 
     override fun getItemCount(): Int = comments.size
 
+    fun submitList(comments: MutableList<String>) {
+        this.comments = comments
+        notifyDataSetChanged()
+    }
+
     fun excludeComment(position: Int) {
-        comments = comments.toMutableList().apply {
-            removeAt(position)
-        }.toList()
+        comments.removeAt(position)
 
         notifyItemRemoved(position)
-        notifyItemRangeRemoved(position, comments.size - position )
+        notifyItemRangeRemoved(position, comments.size - position)
     }
 }
