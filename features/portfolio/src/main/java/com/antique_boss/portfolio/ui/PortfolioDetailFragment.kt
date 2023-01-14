@@ -1,4 +1,4 @@
-package com.antique_boss.portfolio
+package com.antique_boss.portfolio.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
+import com.antique_boss.portfolio.viewmodel.PortfolioViewModel
+import com.antique_boss.portfolio.R
 import com.antique_boss.portfolio.databinding.FragmentPortfolioDetailBinding
 import com.bumptech.glide.Glide
 
@@ -22,7 +24,8 @@ class PortfolioDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_portfolio_detail, container, false)
+        _binding = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_portfolio_detail, container, false)
         return binding.root
     }
 
