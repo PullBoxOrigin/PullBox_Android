@@ -1,6 +1,8 @@
 package com.antique_boss.portfolio.ui
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,9 +41,25 @@ class CommentBottomSheetFragment : BottomSheetDialogFragment() {
     }
 
     private fun initialize() {
+        setupViewListener()
         setupCommentRecyclerView()
         setupObservers()
         setupViewState()
+    }
+
+    private fun setupViewListener() {
+       binding.commentInputView.addTextChangedListener(object : TextWatcher {
+           override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+               portfolioViewModel.updateComment(s.toString())
+           }
+           override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+           override fun afterTextChanged(s: Editable?) {}
+       })
+
+        binding.commentSubmitButton.setOnClickListener {
+            portfolioViewModel.attachComment()
+            commentAdapter.notifyInserted()
+        }
     }
 
     private fun setupCommentRecyclerView() {
@@ -72,6 +90,21 @@ class CommentBottomSheetFragment : BottomSheetDialogFragment() {
     private fun setupObservers() {
         portfolioViewModel.comments.observe(viewLifecycleOwner) {
             commentAdapter.submitList(it)
+        }
+
+        portfolioViewModel.comment.observe(viewLifecycleOwner) {
+            portfolioViewModel.validateRequiredElement()
+        }
+
+        portfolioViewModel.submit.observe(viewLifecycleOwner) {
+            when(it) {
+                true -> {
+                    binding.commentSubmitButton.isEnabled = true
+                }
+                false -> {
+                    binding.commentSubmitButton.isEnabled = false
+                }
+            }
         }
     }
 

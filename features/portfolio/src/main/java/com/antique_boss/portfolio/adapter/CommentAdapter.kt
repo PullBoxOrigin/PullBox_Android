@@ -43,6 +43,10 @@ class CommentAdapter(
         notifyDataSetChanged()
     }
 
+    fun notifyInserted() {
+        notifyItemInserted(0)
+    }
+
     fun excludeComment(position: Int) {
         comments.removeAt(position)
 
