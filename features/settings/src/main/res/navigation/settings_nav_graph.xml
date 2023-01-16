@@ -7,5 +7,13 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.antique_boss.settings.SettingsFragment"
-        android:label="fragment_settings" />
+        android:label="fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_profileEditFragment"
+            app:destination="@id/profileEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileEditFragment"
+        android:name="com.antique_boss.settings.ProfileEditFragment"
+        android:label="ProfileEditFragment"  />
 </navigation>

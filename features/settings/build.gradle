@@ -58,8 +58,8 @@ dependencies {
     //LiveData
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
 
-    //circle image view
-    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    //circular image view
+    implementation 'com.mikhaellopez:circularimageview:4.3.1'
 
     //glide
     implementation 'com.github.bumptech.glide:glide:4.14.2'

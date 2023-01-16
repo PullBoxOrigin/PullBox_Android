@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.antique_boss.portfolio.R
 import com.antique_boss.portfolio.databinding.ListItemPortfolioBinding
+import com.bumptech.glide.Glide
 
 class PortfolioListAdapter(
     private val onPortfolioClickListener: () -> Unit
@@ -14,6 +15,10 @@ class PortfolioListAdapter(
 
     inner class PortfolioViewHolder(private val binding: ListItemPortfolioBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
+            Glide.with(binding.profileImageView.context)
+                .load("https://talkimg.imbc.com/TVianUpload/tvian/TViews/image/2022/10/13/4d8ef85c-ed4f-4f08-843e-19f406616942.jpg")
+                .into(binding.profileImageView)
+
             binding.categoryTextView.text = "#Android"
             binding.nicknameTextView.text = "엔틱보스"
             binding.portfolioQuestionTextView.text = portfolioList[position]
