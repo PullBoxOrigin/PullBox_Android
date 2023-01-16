@@ -1,6 +1,7 @@
 package com.antique_boss.portfolio.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -41,7 +42,7 @@ class PortfolioDetailFragment : Fragment() {
         setupViewListener()
         setupObservers()
 
-        portfolioViewModel.fetchPreview("https://nutritious-silk-3f4.notion.site/Yejin-Kim-4a3c86b990b049a09ac320b504c578f9")
+        portfolioViewModel.fetchPreview("https://nyajjyang-portfolio.tistory.com/")
     }
 
     private fun setupDataBinding() {
@@ -64,6 +65,7 @@ class PortfolioDetailFragment : Fragment() {
 
     private fun setupObservers() {
         portfolioViewModel.preview.observe(viewLifecycleOwner) {
+            Log.d("PreviewTest", it.toString())
             Glide.with(binding.portfolioPreviewImageView.context)
                 .load(it.imageUrl)
                 .into(binding.portfolioPreviewImageView)

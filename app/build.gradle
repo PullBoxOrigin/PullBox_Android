@@ -41,6 +41,7 @@ dependencies {
     implementation project(":features:portfolio")
     implementation project(":features:registration")
     implementation project(":features:news")
+    implementation project(":features:settings")
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
