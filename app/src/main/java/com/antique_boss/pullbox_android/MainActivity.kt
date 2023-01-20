@@ -20,10 +20,6 @@ import com.google.firebase.ktx.Firebase
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
-    private val googleSignInLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        initialize()
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -32,13 +28,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initialize() {
-        if(Firebase.auth.currentUser != null) {
-            setupNavigationGraph()
-            setupEdgeStyle()
-            setupBottomNavigationView()
-        } else {
-            googleSignInLauncher.launch(Intent(this, GoogleSignInActivity::class.java))
-        }
+        setupNavigationGraph()
+        setupEdgeStyle()
+        setupBottomNavigationView()
     }
 
     private fun setupNavigationGraph() {

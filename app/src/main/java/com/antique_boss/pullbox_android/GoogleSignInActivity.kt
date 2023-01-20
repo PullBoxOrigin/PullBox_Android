@@ -67,15 +67,21 @@ class GoogleSignInActivity : AppCompatActivity() {
         Firebase.auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    val intent = Intent(this@GoogleSignInActivity, MainActivity::class.java).apply {
-                        putExtra("Auth", true)
-                    }
-                    setResult(RESULT_OK, intent)
+                    startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 } else {
                     Log.d("FirebaseAuth", "signInWithCredential:failure", task.exception)
                 }
             }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        Firebase.auth.currentUser?.let {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
     }
 
 
